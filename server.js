@@ -1,5 +1,4 @@
 var express = require("express");
-var mongoose = require("mongoose");
 var jobModel = require("./models/Job");
 var jobsData = require("./jobs-data.js");
 
@@ -24,7 +23,7 @@ app.get('*', function (req, res) {
 jobsData.connectDB('mongodb://root:root@ds031551.mongolab.com:31551/jobfinder2')
 .then(function() {
    console.log('connected to mongodb successfully!'); 
-   jobModel.seedJobs();
+   jobsData.seedJobs();
 });
 
 app.listen(process.env.PORT, process.env.IP);

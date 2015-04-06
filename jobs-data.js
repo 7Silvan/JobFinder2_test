@@ -4,10 +4,10 @@ var Promise = require("bluebird");
 var Job = mongoose.model('Job');
 var createJob = Promise.promisify(Job.create, Job);
 
-exports.findJobs = findJobs;
 var findJobs = function (query) {
   return Promise.cast(Job.find(query).exec());
 };
+exports.findJobs = findJobs;
 
 exports.connectDB = Promise.promisify(mongoose.connect, mongoose);
 
